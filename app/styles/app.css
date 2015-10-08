@@ -1,0 +1,73 @@
+div, button {
+  box-sizing: border-box;
+}
+.calculator-container {
+  border: 2px solid black;
+  width: 500px;
+  height: 500px;
+  margin: 5%;
+  padding: 2%;
+}
+.custom-container {
+  display: block;
+  margin: 2%;
+  height: 9%;
+  width: 100%;
+}
+
+.custom-button {
+  height: 100%;
+  width: 20%;
+}
+
+.screen {
+  display: block;
+  float: left;
+  text-align: center;
+  height: 18%;
+  width: 80%;
+  border: 1px solid black;
+}
+
+.calc-button {
+  text-align: center;
+  display: inline-block;
+  margin: 1%;
+  border: 1px solid black;
+}
+
+.number-container {
+  display: inline-block;
+  width: 70%;
+  height: 70%;
+}
+
+.function-container{
+  display: inline-block;
+  width: 28%;
+  height: 80%;
+}
+.clear-btn {
+  height: 15%;
+  width: 15%;
+}
+
+.zero-button {
+  height: 15%;
+  width: 64%;
+}
+.decimal-button {
+  height: 15%;
+    width: 30%;
+}
+.number-button {
+  height: 25%;
+  width: 30%
+}
+
+.function-button {
+  margin: 5%;
+  display: block;
+  width: 95%;
+  height: 18%;
+}

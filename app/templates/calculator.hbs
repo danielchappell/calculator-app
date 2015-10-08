@@ -1,0 +1,30 @@
+<div class="calculator-container container-fluid">
+    <div class="screen">{{display}}</div>
+    <button class="calc-button clear-btn" {{action "clearDisplay"}}>Clear</button>
+    <div class="number-container">
+        <div class="custom-container">
+            <button class="calc-button custom-button">F1</button>
+            <button class="calc-button custom-button">F2</button>
+            <button class="calc-button custom-button">F3</button>
+            <button class="calc-button custom-button">F4</button>
+        </div>
+        <button class="calc-button number-button" {{action "inputChar" "7"}}>7</button>
+        <button class="calc-button number-button" {{action "inputChar" "8"}}>8</button>
+        <button class="calc-button number-button" {{action "inputChar" "9"}}>9</button>
+        <button class="calc-button number-button" {{action "inputChar" "4"}}>4</button>
+        <button class="calc-button number-button" {{action "inputChar" "5"}}>5 </button>
+        <button class="calc-button number-button" {{action "inputChar" "6"}}>6</button>
+        <button class="calc-button number-button" {{action "inputChar" "1"}}>1</button>
+        <button class="calc-button number-button" {{action "inputChar" "2"}}>2</button>
+        <button class="calc-button number-button" {{action "inputChar" "3"}}>3</button>
+        <button class="calc-button zero-button" {{action "inputChar" "0"}}>0</button>
+        <button class="calc-button decimal-button" {{action "inputChar" "."}}>.</button>
+    </div>
+    <div class="function-container">
+        <button class="calc-button function-button" {{action "inputChar" "/"}}>/</button>
+        <button class="calc-button function-button" {{action "inputChar" "*"}}>*</button>
+        <button class="calc-button function-button" {{action "inputChar" "-"}}>-</button>
+        <button class="calc-button function-button" {{action "inputChar" "+"}}>+</button>
+        <button class="calc-button function-button" {{action "requestEvaluation"}}>=</button>
+    </div>
+</div>

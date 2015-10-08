@@ -87,5 +87,13 @@ describeModule(
             expect(controller.get('currentExpression.0')).to.equal(3);
         });
 
+        it('should prevent adding operators when not appropriate', function() {
+            var controller = this.subject();
+            controller.set('currentExpression', ['1', '+', '2']);
+            expect(controller.get('canInputOperator')).to.be.true;
+
+            controller.send('inputChar', '/');
+            expect(controller.get('canInputOperator')).to.be.false;
+        });
     }
 );

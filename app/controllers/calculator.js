@@ -5,12 +5,28 @@ export default Ember.Controller.extend({
         this._super();
         this.set('currentExpression', []);
     },
-    display: function(){
-        return this.get('currentExpression').join(' ');
-    }.property('currentExpression.[]'),
+    queryParams: ['display'],
+    display: Ember.computed('currentExpression.[]', {
+        get() {
+            return this.get('currentExpression') && this.get('currentExpression').join(' ');
+        },
+        set(key, value) {
+            if (value) {
+                this.set('currentExpression', value.split(' '));
+            }
+                return value;
+        }
+    }),
     hasSufferedError: function() {
         return this.get('display') === 'ERROR';
     }.property('display'),
+    canInputNumber: Ember.computed.not('hasSufferedError'),
+    canInputOperator: function() {
+        let currentExpression = this.get('currentExpression');
+        return /[0-9.]/.test(currentExpression[currentExpression.length - 1]) && !this.get('hasSufferedError');
+    }.property('currentExpression.[]'),
+    cannotInputNumber: Ember.computed.not('canInputNumber'),
+    cannotInputOperator: Ember.computed.not('canInputOperator'),
     currentExpression: null,
     _evaluateCurrentExpression(userRequested) {
         let currentExpression = this.get('currentExpression');

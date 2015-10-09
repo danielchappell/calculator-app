@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('calculator', {});
+    this.route('calculator');
+    this.route('review');
+    this.route('view-receipt', {path: '/register/:register_id'});
 });
 
 export default Router;

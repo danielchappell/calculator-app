@@ -1,0 +1,5 @@
+{{#each registers as |register|}}
+    <div class="saved-register" {{action "showRegisterDetails" register}}></div>
+    {{else}}
+    <span class="no-registers">No Saved Registers!</span>
+{{/each}}

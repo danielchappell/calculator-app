@@ -45,7 +45,7 @@ describeModule(
             controller._evaluateCurrentExpression();
 
             expect(controller.get('currentExpression').length).to.equal(2); //['3', '/']
-            expect(controller.get('currentExpression.0')).to.equal(3);
+            expect(controller.get('currentExpression.0')).to.equal('3');
 
 
         });
@@ -83,8 +83,10 @@ describeModule(
 
             controller.send('requestEvaluation');
 
-            expect(controller.get('currentExpression').length).to.equal(1);
-            expect(controller.get('currentExpression.0')).to.equal(3);
+            expect(controller.get('currentExpression').length).to.equal(2);
+            expect(controller.get('currentExpression.0')).to.equal('3');
+            expect(controller.get('currentExpression.1')).to.equal('|');
+
         });
 
         it('should prevent adding operators when not appropriate', function() {

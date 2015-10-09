@@ -1,0 +1,6 @@
+<form {{action "saveRegister" model  on="submit"}}>
+    <h3>Enter a label for your register</h3>
+    {{input type="text" value=model.label}}
+    <button type="button" {{action 'clearSaveModal'}}>cancel</button>
+    <button type="submit">save register</button>
+</form>

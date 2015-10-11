@@ -7,7 +7,7 @@ export default Ember.Route.extend({
         registerBuffer: {replace: true}
     },
     model() {
-        //return this.store.findAll('register');
+        return this.store.findAll('register');
     },
     resetController(controller, isExiting) {
         if (isExiting) {

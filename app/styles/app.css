@@ -83,7 +83,7 @@ div, button {
 }
 .decimal-button {
   height: 15%;
-    width: 30%;
+  width: 30%;
 }
 .number-button {
   height: 25%;
@@ -101,4 +101,9 @@ div, button {
   overflow: scroll;
   height: 500px;
   width: 150;
+}
+
+.saved-registers {
+  position: absolute;
+  left: 700px;
 }

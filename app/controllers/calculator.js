@@ -154,7 +154,7 @@ export default Ember.Controller.extend({
             }
         },
         goToViewRegister(register) {
-            this.transitionToRoute('view-register', register);
+            this.transitionToRoute('view-receipt', register);
         }
     }
 });

@@ -7,10 +7,10 @@ export default Ember.Route.extend({
         });
     },
     actions: {
-        saveRegister(/*model*/) {
-            //model.set('date', Date()); //just want string not object
-            // model.save();
-            this.transitionTo('caclulator');
+        saveRegister(model) {
+            model.set('date', Date()); //just want string not object
+            model.save();
+            this.transitionTo('calculator');
         },
         showSaveModal() {
             this.render('register-label-modal',{

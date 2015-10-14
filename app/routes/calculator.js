@@ -1,6 +1,7 @@
-import Ember from 'ember';
+//import Ember from 'ember';
+import AuthenticatedRoute from './authenticated';
 
-export default Ember.Route.extend({
+export default AuthenticatedRoute.extend({
     queryParams: {
         display: {replace: true},
         registerDisplay: {replace: true},

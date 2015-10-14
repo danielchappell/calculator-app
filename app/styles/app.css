@@ -5,7 +5,7 @@ div, button {
 .calculator-container {
   position: absolute;
   display: inline-block;
-  margin: 5%;
+  margin: 2%;
   width: 500px;
   height: 700px;
 }
@@ -105,5 +105,24 @@ div, button {
 
 .saved-registers {
   position: absolute;
-  left: 700px;
+  left: 600px;
+  top: 200px;
+  height: 500px;
+  width: 200px;
+}
+
+.saved-register {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.click {
+  cursor: pointer;
+}
+
+.keep-register-link {
+  position: absolute;
+  left: 600px;
 }

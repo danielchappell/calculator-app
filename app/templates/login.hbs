@@ -1,0 +1,10 @@
+<h2>Log In</h2>
+{{#link-to 'user.new'}}Not a user Yet? Sign up!{{/link-to}}
+<form {{action "login" model.username model.password on="submit"}}>
+    <p>{{errorMessage}}</p>
+    <label for="username">username</label>
+    {{input id="username" value=model.username placeholder="your_user_name_here234"}}
+    <label for="username">username</label>
+    {{input id="password" value=model.password placeholder="notYourDogsName23!%"}}
+    <button type="submit">login!</button>
+</form>

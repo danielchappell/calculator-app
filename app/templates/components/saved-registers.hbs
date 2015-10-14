@@ -1,8 +1,8 @@
 <h4>Saved Registers</h4>
 {{#each registers as |register|}}
-    <button type="button" class="saved-register" {{action "showRegisterDetails" register}}>
+    <div class="saved-register click" {{action "showRegisterDetails" register}}>
         {{register.label}}
-    </button>
+    </div>
     {{else}}
     <span class="no-registers">No Saved Registers!</span>
 {{/each}}

@@ -39,7 +39,8 @@ export default Ember.Service.extend({
                 method: "POST",
                 url,
                 success,
-                error
+                error,
+                xhrFields: {withCredentials: true}
             });
         });
     }

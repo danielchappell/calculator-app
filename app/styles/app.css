@@ -126,3 +126,7 @@ div, button {
   position: absolute;
   left: 600px;
 }
+
+.error-message {
+  color: red;
+}

@@ -7,11 +7,19 @@ export default AuthenticatedRoute.extend({
             register: this.controllerFor('calculator').get('registerDisplay')
         });
     },
+    deactivate() {
+        let model = this.modelFor('review');
+
+        if (model.get('isNew')) {
+            model.deleteRecord();
+        }
+    },
     actions: {
         saveRegister(model) {
             model.set('date', Date()); //just want string not object
-            model.save();
-            this.transitionTo('calculator');
+            model.save().then(() => {
+                this.transitionTo('calculator');
+            });
         },
         showSaveModal() {
             this.render('register-label-modal',{

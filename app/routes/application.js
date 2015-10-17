@@ -7,7 +7,9 @@ export default Ember.Route.extend({
             window.history.back();
         },
         logout() {
-            this.get('session').logout();
+            this.get('session').logout().then(() => {
+                this.transitionTo('login');
+            });
         }
     }
 });

@@ -6,7 +6,6 @@ export default Ember.Service.extend({
     attemptedTranstion: null,
 
     login(username, password) {
-        console.log(this);
         return new Ember.RSVP.Promise((resolve, reject) => {
             let url = `${this.get('apiBase')}/login`;
             let success = () => {
@@ -18,6 +17,30 @@ export default Ember.Service.extend({
             Ember.$.ajax({
                 method: "POST",
                 data: {"username": username, "password": password},
+                url,
+                success,
+                error
+            });
+        });
+    },
+
+    checkAuth() {
+        return new Ember.RSVP.Promise((resolve, reject) => {
+            let url = `${this.get('apiBase')}/checkAuth`;
+            let success = () => {
+                this.set('isAuthenticated', true);
+                resolve();
+            };
+            let error = () => reject();
+
+            // if marked as authenticated don't bother checking server
+            if (this.get('isAuthenticated')) {
+                resolve();
+                return;
+            }
+
+            Ember.$.ajax({
+                method: "GET",
                 url,
                 success,
                 error
@@ -40,7 +63,10 @@ export default Ember.Service.extend({
                 url,
                 success,
                 error,
-                xhrFields: {withCredentials: true}
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true
             });
         });
     }

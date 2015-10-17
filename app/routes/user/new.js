@@ -7,11 +7,14 @@ export default Ember.Route.extend({
     },
     actions: {
         createUser(user) {
+            if (!user.get('isValid')) {
+                return;
+            }
+
             user.save().then(() => {
                 this.set('session.isAuthenticated', true);
                 this.transitionTo('calculator');
             }, (err) => {
-                this.set('errorMessage', "Something went wrong! Possibly the username is taken?");
                 console.error(err);
             });
         }

@@ -1,3 +1,5 @@
-<button {{action "logout"}}>logout</button>
+{{#if session.isAuthenticated}}
+    <button {{action "logout"}}>logout</button>
+{{/if}}
 {{outlet}}
 {{outlet "modal"}}

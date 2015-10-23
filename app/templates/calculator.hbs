@@ -1,81 +1,84 @@
-<div class="row">
-    <div class="col s12">
-        {{#if hasRegister}} {{#link-to 'review' tagName='button' class='keep-register-link' }}Review/Keep Register{{/link-to}} {{/if}}
-    </div>
-</div>
-<div class="row">
-    <div class="col s8 offset-s2">
-        <div class="register-container z-depth-1">
-            {{register-tape register=registerDisplay}}
-        </div>
+<div class="row section">
+    <div class="col s12 m6 offset-m1">
         <div class="calculator-container z-depth-1">
-            <div class="row">
-                <div class="col s8">
-                    <div class="screen black white-text right-align">
-                        {{display}}
+            <div class="register-container">
+                <div class="row">
+                    <div class="col s12">
+                        {{register-tape register=registerDisplay registerUpdated="registerUpdated"}}
                     </div>
                 </div>
-                <div class="col s4">
-                    {{!-- clear-btn --}}
-                    <button class="btn-flat" {{action "clearDisplay"}}>{{clearCopy}}</button>
+                {{#if hasRegister}}
+                    {{#link-to "review" tagName="a" class="btn-floating btn-large keep-register-link"}}
+                        <i class="material-icons">save</i>
+                    {{/link-to}}
+                {{/if}}
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="screen blue-grey darken-4 white-text right-align">
+                        {{display}}
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col s9">
+                    <div class="custom-container row">
+                        <div class="col s3">
+                            <button class="btn-flat">F1</button>
+                        </div>
+                        <div class="col s3">
+                            <button class="btn-flat">F2</button>
+                        </div>
+                        <div class="col s3">
+                            <button class="btn-flat">F3</button>
+                        </div>
+                        <div class="col s3">
+                            <button class="btn-flat">F4</button>
+                        </div>
+                    </div>
                     <div class="number-container">
-                        <div class="custom-container row">
-                            <div class="col s3">
-                                <button class="btn-flat">F1</button>
+                        <div class="row">
+                            <div class="col s4">
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "7"}}>7</button>
                             </div>
-                            <div class="col s3">
-                                <button class="btn-flat">F2</button>
+                            <div class="col s4">
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "8"}}>8</button>
                             </div>
-                            <div class="col s3">
-                                <button class="btn-flat">F3</button>
-                            </div>
-                            <div class="col s3">
-                                <button class="btn-flat">F4</button>
+                            <div class="col s4">
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "9"}}>9</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "7"}}>7</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "4"}}>4</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "8"}}>8</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "5"}}>5 </button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "9"}}>9</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "6"}}>6</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "4"}}>4</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "1"}}>1</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "5"}}>5 </button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "2"}}>2</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "6"}}>6</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "3"}}>3</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "1"}}>1</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "."}}>.</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "2"}}>2</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "0"}}>0</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "3"}}>3</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s8">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "0"}}>0</button>
-                            </div>
-                            <div class="col s4">
-                                <button class="btn-flat" disabled={{cannotInputNumber}} {{action "inputChar" "."}}>.</button>
+                                <button class="btn-flat btn-equals {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "requestEvaluation"}}>=</button>
                             </div>
                         </div>
                     </div>
@@ -84,27 +87,27 @@
                     <div class="function-container">
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat" disabled={{cannotInputOperator}} {{action "inputChar" "/"}}>/</button>
+                                <button class="btn-flat btn-clear" {{action "clearDisplay"}}>{{clearCopy}}</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat" disabled={{cannotInputOperator}} {{action "inputChar" "*"}}>*</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "/"}}>/</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat" disabled={{cannotInputOperator}} {{action "inputChar" "-"}}>-</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "*"}}>*</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat" disabled={{cannotInputOperator}} {{action "inputChar" "+"}}>+</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "-"}}>-</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat" disabled={{cannotInputOperator}} {{action "requestEvaluation"}}>=</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "+"}}>+</button>
                             </div>
                         </div>
                     </div>
@@ -112,9 +115,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col s12">
+    <div class="col s12 m4">
         {{saved-registers registers=model viewRegister=(action "goToViewRegister")}}
     </div>
 </div>

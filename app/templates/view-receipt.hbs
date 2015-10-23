@@ -1,5 +1,19 @@
-<div class="register-container">
-    <div class="register-review">{{{model.register}}}</div>
-    <button {{action "goBack"}}>Go Back</button>
-    <button{{action "deleteRegister" model}}>Delete Register</button>
+<h1>{{model.label}}</h1>
+<div class="row section">
+    <div class="col s4">
+        <button class="btn-flat waves-effect waves-light" {{action "goBack"}}>
+            <i class="material-icons left">chevron_left</i>
+            Go back
+        </button>
+    </div>
+    <div class="col s8 right-align">
+        <button class="btn waves-effect waves-light" {{action "deleteRegister" model}}>Delete register</button>
+    </div>
+</div>
+<div class="row section">
+    <div class="col s12 m6 offset-m3">
+        {{#if model.register}}
+            {{register-tape class="z-depth-1 large" register=model.register}}
+        {{/if}}
+    </div>
 </div>

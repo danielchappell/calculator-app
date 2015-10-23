@@ -1,8 +1,10 @@
-<h4>Saved Registers</h4>
-{{#each registers as |register|}}
-    <div class="saved-register click" {{action "showRegisterDetails" register}}>
-        {{register.label}}
-    </div>
+<h5>Saved registers</h5>
+<div class="registers-collection {{if registers 'collection'}}">
+    {{#each registers as |register|}}
+        <a href="#void" class="amber-text text-darken-1 collection-item" {{action "showRegisterDetails" register}}>
+            {{register.label}}
+        </a>
     {{else}}
-    <span class="no-registers">No Saved Registers!</span>
-{{/each}}
+        <em class="grey-text">No saved registers</em>
+    {{/each}}
+</div>

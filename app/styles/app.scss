@@ -1,35 +1,16 @@
 @import "materialize";
 
-$calc-button-height: 4rem;
-$calc-whitespace: 6px;
-
-.calculator-container {
-    padding: 6px 6px 0;
-
-    button {
-        @extend .grey.lighten-2;
-
-        display: block;
-        font-size: 1.618rem;
-        height: $calc-button-height;
-        width: 100%;
-    }
-
-    .screen {
-        height: $calc-button-height;
-        font-size: 2.618rem;
-        padding: 0 $calc-whitespace;
-    }
-
-    /**
-        Adjust Materialize grid for calculator (reduce whitespace)
-     */
-    .row {
-        margin: 0 -3px $calc-whitespace;
-
-        .col {
-            padding: 0 3px;
-        }
-    }
-
+%register-text {
+    font-family: monospace;
+    line-height: 1.2em;
+    text-align: right;
+    white-space: pre;
 }
+
+html {
+    @extend .blue-grey.lighten-5;
+    @extend .blue-grey-text.text-darken-4;
+}
+
+@import 'partials/register-tape';
+@import 'partials/calculator';

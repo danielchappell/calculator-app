@@ -1,13 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNames:['register-tape'],
+    classNames:['register-tape white'],
     register: null,
 
-    _scrollToBottom: function() {
-        Ember.run.later(this, function() {
-            let elem$ = this.$();
-            elem$.scrollTop(elem$.prop('scrollHeight'));
-        }, 1);
+    didInsertElement: function() {
+        this.sendAction('registerUpdated');
+    }.observes('register'),
+
+    watchRegister: function() {
+        this.sendAction('registerUpdated');
     }.observes('register')
 });

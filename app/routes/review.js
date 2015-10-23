@@ -22,7 +22,7 @@ export default AuthenticatedRoute.extend({
             });
         },
         showSaveModal() {
-            this.render('register-label-modal',{
+            this.render('save-register',{
                 into: 'application',
                 outlet: 'modal',
                 controller: this.get('controller')

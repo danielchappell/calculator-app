@@ -1,0 +1,15 @@
+<form {{action "saveRegister" content on="submit" }}>
+    <div class="modal-content">
+        <h4>Enter a label for your register</h4>
+        <p class="input-field">
+            {{input type="text" value=content.label}}
+        </p>
+    </div>
+    <div class="modal-footer right-align">
+        <button type="submit" class="btn {{if hasLabel '' 'disabled'}}">
+            <i class="material-icons left">save</i>
+            Save register
+        </button>
+        <button type="button" class="btn-flat" {{action "clearSaveModal"}}>cancel</button>
+    </div>
+</form>

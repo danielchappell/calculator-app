@@ -1,0 +1,16 @@
+@import "materialize";
+
+%register-text {
+    font-family: monospace;
+    line-height: 1.2em;
+    text-align: right;
+    white-space: pre;
+}
+
+html {
+    @extend .blue-grey.lighten-5;
+    @extend .blue-grey-text.text-darken-4;
+}
+
+@import 'partials/register-tape';
+@import 'partials/calculator';

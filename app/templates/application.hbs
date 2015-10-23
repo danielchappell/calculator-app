@@ -1,5 +1,23 @@
-{{#if session.isAuthenticated}}
-    <button {{action "logout"}}>logout</button>
-{{/if}}
-{{outlet}}
+<nav class="light-blue darken-4">
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s8 valign-wrapper">
+                    <i class="small material-icons valign">explicit</i>
+                    <span>Ember calc</span>
+                </div>
+                <div class="col s4 right-align">
+                    {{#if session.isAuthenticated}}
+                        <button class="waves-effect waves-light btn-flat white-text" {{action "logout"}}>Logout</button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="section">
+        {{outlet}}
+    </div>
+</div>
 {{outlet "modal"}}

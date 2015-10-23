@@ -1,0 +1,9 @@
+.register-tape {
+    @extend %register-text;
+
+    padding: 0.618em 1em 0;
+
+    &.large {
+        font-size: 1.618rem;
+    }
+}

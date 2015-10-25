@@ -1,7 +1,7 @@
 <h5>Saved registers</h5>
 <div class="registers-collection {{if registers 'collection'}}">
     {{#each registers as |register|}}
-        <a href="#void" class="amber-text text-darken-1 collection-item" {{action "showRegisterDetails" register}}>
+        <a href="#void" class="light-blue-text text-darken-1 collection-item" {{action "showRegisterDetails" register}}>
             {{register.label}}
         </a>
     {{else}}

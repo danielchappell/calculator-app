@@ -12,5 +12,15 @@ html {
     @extend .blue-grey-text.text-darken-4;
 }
 
+form {
+    padding-bottom: 30px;
+}
+
+.modal.bottom-sheet {
+    form {
+        padding-bottom: 0;
+    }
+}
+
 @import 'partials/register-tape';
 @import 'partials/calculator';

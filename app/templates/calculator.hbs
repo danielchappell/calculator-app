@@ -4,7 +4,7 @@
             <div class="register-container">
                 <div class="row">
                     <div class="col s12">
-                        {{register-tape register=registerDisplay registerUpdated="registerUpdated"}}
+                        {{register-tape register=registerTape registerUpdated="registerUpdated"}}
                     </div>
                 </div>
                 {{#if hasRegister}}
@@ -24,61 +24,61 @@
                 <div class="col s9">
                     <div class="custom-container row">
                         <div class="col s3">
-                            <button class="btn-flat">F1</button>
+                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "powerOf"}}>x(y)</button>
                         </div>
                         <div class="col s3">
-                            <button class="btn-flat">F2</button>
+                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "factorial"}}>!</button>
                         </div>
                         <div class="col s3">
-                            <button class="btn-flat">F3</button>
+                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "sin"}}>sin</button>
                         </div>
                         <div class="col s3">
-                            <button class="btn-flat">F4</button>
+                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "cos"}}>cos</button>
                         </div>
                     </div>
                     <div class="number-container">
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "7"}}>7</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "7"}}>7</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "8"}}>8</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "8"}}>8</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "9"}}>9</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "4"}}>4</button>
-                            </div>
-                            <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "5"}}>5 </button>
-                            </div>
-                            <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "6"}}>6</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "9"}}>9</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "1"}}>1</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "4"}}>4</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "2"}}>2</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "5"}}>5 </button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "3"}}>3</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "6"}}>6</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "."}}>.</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "1"}}>1</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputChar" "0"}}>0</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "2"}}>2</button>
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat btn-equals {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "requestEvaluation"}}>=</button>
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "3"}}>3</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s4">
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "."}}>.</button>
+                            </div>
+                            <div class="col s4">
+                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "0"}}>0</button>
+                            </div>
+                            <div class="col s4">
+                                <button class="btn-flat btn-equals {{if cannotInputEqualOperator 'disabled'}}" disabled={{cannotInputEqualOperator}} {{action "inputOperator" "equal"}}>=</button>
                             </div>
                         </div>
                     </div>
@@ -87,27 +87,27 @@
                     <div class="function-container">
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat btn-clear" {{action "clearDisplay"}}>{{clearCopy}}</button>
+                                <button class="btn-flat btn-clear" {{action "clearDisplay"}}>{{clearCurrent}}</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "/"}}>/</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "divide"}}>÷</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "*"}}>*</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "multiply"}}>×</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "-"}}>-</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "subtract"}}>-</button>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputChar" "+"}}>+</button>
+                                <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "add"}}>+</button>
                             </div>
                         </div>
                     </div>

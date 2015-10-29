@@ -171,15 +171,6 @@ export default Ember.Controller.extend({
                 hasSufferedError: false,
                 currentTotalFrozen: false
             });
-        },
-        registerUpdated() {
-            Ember.run.schedule('afterRender', this, function() {
-                let elem$ = $('.register-container:first');
-                elem$.scrollTop(elem$.prop('scrollHeight'));
-            });
-        },
-        goToViewRegister(register) {
-            this.transitionToRoute('view-receipt', register);
         }
     }
 });

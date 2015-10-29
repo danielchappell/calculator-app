@@ -7,6 +7,7 @@ $calc-whitespace: 6px;
 
     border-radius: 5px;
     padding: $calc-whitespace $calc-whitespace 0;
+    position: relative;
 
     button {
         @extend .blue-grey.lighten-5;
@@ -19,26 +20,31 @@ $calc-whitespace: 6px;
         width: 100%;
     }
 
-    .register-container {
-        border: solid #eceff1 2px;
+    .register-tape {
+        border: dotted #b0bec5 1px;
         border-radius: 3px;
-        height: $calc-register-height;
-        margin-bottom: $calc-whitespace;
-        padding: $calc-whitespace;
-        position: relative;
+        box-shadow: inset #90a4ae 0 0 3px;
+        height: 7.2em;
         overflow: hidden;
         overflow-y: auto;
 
-        a {
-            position: absolute;
-            top: $calc-whitespace;
+        .register-window {
+            display: table;
+            min-height: 7.2em;
+            width: 100%;
+
+            .register-content {
+                display: table-cell;
+                padding: 0;
+                vertical-align: bottom;
+                white-space: normal;
+            }
         }
 
-        .register-tape {
-            border: 0;
-            bottom: $calc-whitespace/2;
+        .keep-register-link {
             position: absolute;
-            right: 0;
+            left: $calc-whitespace * 2;
+            top: $calc-whitespace * 2;
         }
     }
 

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     registers: null,
     actions: {
         showRegisterDetails(register) {
-            this.get('viewRegister')(register);
+            this.sendAction('viewRegister', register);
         }
     }
 });

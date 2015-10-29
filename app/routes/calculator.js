@@ -33,5 +33,10 @@ export default AuthenticatedRoute.extend({
                 hasSufferedError: false
             });
         }
+    },
+    actions: {
+        goToViewRegister(register) {
+            this.transitionTo('view-receipt', register);
+        }
     }
 });

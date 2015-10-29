@@ -17,13 +17,13 @@ describeModule(
         it('clearDisplay should clear display property', function() {
             var controller = this.subject();
 
-            expect(controller.get('display')).to.equal("");
+            expect(controller.get('display')).to.equal('0');
 
-            controller.set('currentExpression', ["123"]);
-            expect(controller.get('display')).to.equal("123");
+            controller.set('runningTotal', '232');
+            expect(controller.get('display')).to.equal('232');
 
             controller.send('clearDisplay');
-            expect(controller.get('display')).to.equal("");
+            expect(controller.get('display')).to.equal('0');
         });
 
         it('inputChar method should add character to display string', function() {

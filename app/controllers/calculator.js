@@ -19,6 +19,11 @@ export default Ember.Controller.extend({
     canInputOperator: Ember.computed.not('cannotInputNumber'),
     cannotInputEqualOperator: Ember.computed.or('cannotInputOperator', 'currentTotalFrozen'),
     hasRegister: Ember.computed.notEmpty('registerTape'),
+    isAdding: Ember.computed.equal('fnName', 'add'),
+    isSubtracting: Ember.computed.equal('fnName', 'subtract'),
+    isDividing: Ember.computed.equal('fnName', 'divide'),
+    isMultiplying: Ember.computed.equal('fnName', 'multiply'),
+    isPowerOfing: Ember.computed.equal('fnName', 'powerOf'),
     clearCurrent: Ember.computed('runningTotal', function() {
         return this.get('runningTotal') !== '0'  ? "C" : "CR";
     }),
@@ -54,7 +59,7 @@ export default Ember.Controller.extend({
             symbol = '÷';
             break;
         case 'factorial':
-            symbol = 'x!';
+            symbol = '!';
             break;
         case 'powerOf':
             symbol = 'x(y)';

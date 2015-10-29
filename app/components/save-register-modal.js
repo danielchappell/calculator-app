@@ -6,23 +6,26 @@ export default Ember.Component.extend({
     hasLabel: Ember.computed.notEmpty('content.label'),
 
     didInsertElement() {
-        this._super();
+        var context = this;
 
-        $(this.get('element')).openModal({
+        this.$().openModal({
             ready() {
-                $('#saveRegisterModal input:first-of-type').focus();
+                context.$('#saveRegisterModal input:first-of-type').focus();
+            },
+            complete() {
+                context.sendAction('clearSaveModal');
             }
         });
     },
 
     actions: {
         saveRegister(register) {
-            $(this.get('element')).closeModal();
+            this.$().closeModal();
             this.sendAction('saveRegister', register);
         },
 
         clearSaveModal() {
-            $(this.get('element')).closeModal();
+            this.$().closeModal();
             this.sendAction('clearSaveModal');
         }
     }

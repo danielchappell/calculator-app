@@ -2,6 +2,10 @@ $calc-button-height: 4rem;
 $calc-register-height: 8em;
 $calc-whitespace: 6px;
 
+.calculator-wrapper {
+    margin-top: 1.618em;
+}
+
 .calculator-container {
     @extend .white;
 

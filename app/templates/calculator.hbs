@@ -24,61 +24,61 @@
                 <div class="col s9">
                     <div class="custom-container row">
                         <div class="col s3">
-                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "powerOf"}}>x(y)</button>
+                            {{#calc-button isDisabled=cannotInputOperator action=(action "inputOperator" "powerOf")}}x(y){{/calc-button}}
                         </div>
                         <div class="col s3">
-                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "factorial"}}>!</button>
+                            {{#calc-button isDisabled=cannotInputOperator action=(action "inputOperator" "factorial")}}!{{/calc-button}}
                         </div>
                         <div class="col s3">
-                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "sin"}}>sin</button>
+                            {{#calc-button isDisabled=cannotInputOperator action=(action "inputOperator" "sin")}}sin{{/calc-button}}
                         </div>
                         <div class="col s3">
-                            <button class="btn-flat {{if cannotInputOperator 'disabled'}}" disabled={{cannotInputOperator}} {{action "inputOperator" "cos"}}>cos</button>
+                            {{#calc-button isDisabled=cannotInputOperator action=(action "inputOperator" "cos")}}cos{{/calc-button}}
                         </div>
                     </div>
                     <div class="number-container">
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "7"}}>7</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "7")}}7{{/calc-button}}
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "8"}}>8</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "8")}}8{{/calc-button}}
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "9"}}>9</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "4"}}>4</button>
-                            </div>
-                            <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "5"}}>5 </button>
-                            </div>
-                            <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "6"}}>6</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "9")}}9{{/calc-button}}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "1"}}>1</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "4")}}4{{/calc-button}}
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "2"}}>2</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "5")}}5{{/calc-button}}
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "3"}}>3</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "6")}}6{{/calc-button}}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "."}}>.</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "1")}}1{{/calc-button}}
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat {{if cannotInputNumber 'disabled'}}" disabled={{cannotInputNumber}} {{action "inputNum" "0"}}>0</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "2")}}2{{/calc-button}}
                             </div>
                             <div class="col s4">
-                                <button class="btn-flat btn-equals {{if cannotInputEqualOperator 'disabled'}}" disabled={{cannotInputEqualOperator}} {{action "inputOperator" "equal"}}>=</button>
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "3")}}3{{/calc-button}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s4">
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" ".")}}.{{/calc-button}}
+                            </div>
+                            <div class="col s4">
+                                {{#calc-button isDisabled=cannotInputNumber action=(action "inputNum" "0")}}0{{/calc-button}}
+                            </div>
+                            <div class="col s4">
+                                {{#calc-button isDisabled=cannotInputEqualOperator action=(action "inputOperator" "equal")}}={{/calc-button}}
                             </div>
                         </div>
                     </div>

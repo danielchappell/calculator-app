@@ -1,5 +1,3 @@
-'use strict';
-
 /**
 Curried verions of simple math operations
  **/

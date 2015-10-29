@@ -19,9 +19,9 @@ export default Ember.Component.extend({
     }.property('register'),
 
     scrollRegister: function() {
-        Ember.run.later(this, function() {
+        Ember.run.schedule('afterRender',this, function() {
             let elem$ = this.$(this.element);
             elem$.scrollTop(elem$.prop('scrollHeight'));
-        }, 1);
+        });
     }.on('didInsertElement').observes('register')
 });

@@ -4,7 +4,7 @@ import AuthenticatedRoute from './authenticated';
 export default AuthenticatedRoute.extend({
     model() {
         return this.store.createRecord('register', {
-            register: this.controllerFor('calculator').get('registerDisplay')
+            register: this.controllerFor('calculator').get('registerTape')
         });
     },
     deactivate() {

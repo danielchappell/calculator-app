@@ -143,12 +143,6 @@ export default Ember.Controller.extend({
                         this.set('registerTape', []);
                     }
                 },
-                registerUpdated() {
-                    Ember.run.later(this, function() {
-                        let elem$ = $('.register-container:first');
-                        elem$.scrollTop(elem$.prop('scrollHeight'));
-                    }, 1);
-                },
                 requestEvaluation() {
                     let userRequested = true;
                     let total = this._evaluateCurrentExpression(userRequested);

@@ -1,1 +1,10 @@
-{{register}}
+<div class="register-window">
+    <div class="register-content">
+        {{{registerDisplay}}}
+    </div>
+</div>
+{{#if hasRegister}}
+    {{#link-to "review" tagName="a" class="btn-floating btn-large keep-register-link"}}
+        <i class="material-icons">save</i>
+    {{/link-to}}
+{{/if}}

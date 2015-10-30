@@ -23,7 +23,7 @@ export default Ember.Route.extend({
                     this.transitionTo('calculator');
                 }
             }, () => {
-                this.set('model.errorMessage', 'Incorrect combination of username and password');
+                this.get('controller').set('model.errorMessage', 'Incorrect combination of username and password');
             });
         }
     }

@@ -73,8 +73,7 @@ describeModule.only(
         });
 
         describe('#inputOperator-Action', function() {
-            it('')
-
+        });
         it('should diplay ERROR if there is an error during evaluation', function() {
             var controller = this.subject();
             expect(controller.get('hasSufferedError')).to.be.false;
@@ -122,5 +121,4 @@ describeModule.only(
             controller.send('inputChar', '/');
             expect(controller.get('canInputOperator')).to.be.false;
         });
-    }
-);
+    });

@@ -22,6 +22,8 @@ export default Ember.Route.extend({
                 } else {
                     this.transitionTo('calculator');
                 }
+            }, () => {
+                this.set('model.errorMessage', 'Incorrect combination of username and password');
             });
         }
     }

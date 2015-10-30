@@ -1,11 +1,12 @@
 /* jshint expr:true */
 import { expect } from 'chai';
+import { describe } from 'mocha';
 import {
     describeModule,
     it
 } from 'ember-mocha';
 
-describeModule(
+describeModule.only(
     'controller:calculator',
     'CalculatorController',
     {
@@ -13,42 +14,66 @@ describeModule(
         // needs: ['controller:foo']
     },
     function() {
-        // Replace this with your real tests.
-        it('clearDisplay should clear display property', function() {
-            var controller = this.subject();
+        describe('#clearDisplay-Action', function() {
+            it('clearDisplay should clear display property', function() {
+                var controller = this.subject();
 
-            expect(controller.get('display')).to.equal('0');
+                expect(controller.get('display')).to.equal('0');
 
-            controller.set('runningTotal', '232');
-            expect(controller.get('display')).to.equal('232');
+                controller.set('runningTotal', '232');
+                expect(controller.get('display')).to.equal('232');
 
-            controller.send('clearDisplay');
-            expect(controller.get('display')).to.equal('0');
-        });
+                controller.send('clearDisplay');
+                expect(controller.get('display')).to.equal('0');
+            });
 
-        it('inputChar method should add character to display string', function() {
-            var controller = this.subject();
-            expect(controller.get('display')).to.equal("");
-            controller.send('inputChar', "1");
-            expect(controller.get('display')).to.equal("1");
-            controller.send('inputChar', "5");
-            expect(controller.get('display')).to.equal("15");
-        });
+            it('clearDisplay should clear register if and only if display is empty', function() {
+                var controller = this.subject();
 
-        it('should evaluate current expression', function() {
-            var controller = this.subject();
-            controller.set('currentExpression', ['1', '+', '2']);
-            controller._evaluateCurrentExpression(); //won't eval until 4th input
-            expect(controller.get('currentExpression').length).to.equal(3);
+                controller.set('registerTape', '+ 4');
+                controller.set('runningTotal', '232');
+                expect(controller.get('display')).to.equal('232');
 
-            controller.get('currentExpression').push('/');
-            controller._evaluateCurrentExpression();
+                controller.send('clearDisplay');
+                expect(controller.get('display')).to.equal('0');
+                expect(controller.get('registerTape')).to.not.equal('');
 
-            expect(controller.get('currentExpression').length).to.equal(2); //['3', '/']
-            expect(controller.get('currentExpression.0')).to.equal('3');
-
+                controller.send('clearDisplay');
+                expect(controller.get('registerTape')).to.equal('');
+            });
 
         });
+        describe('#inputNum-Action', function() {
+            it('should replace 0 as first digit if left operand is 0 and no function is selected', function() {
+                var controller = this.subject();
+                controller.set('loadedFn', null);
+                expect(controller.get('runningTotal')).to.equal('0');
+                controller.send('inputNum', '1');
+                expect(controller.get('runningTotal')).to.equal('1');
+            });
+
+            it('should add digit to first operand if operator is not selected', function() {
+                var controller = this.subject();
+                controller.set('loadedFn', null);
+                controller.set('runningTotal', '1');
+                expect(controller.get('runningTotal')).to.equal('1');
+                controller.send('inputNum', '5');
+                expect(controller.get('runningTotal')).to.equal('15');
+            });
+
+            it('should add digit to second operand if operator is has been chosen', function() {
+                var controller = this.subject();
+                controller.set('loadedFn', function(x) { return 3 + x;});
+                expect(controller.get('operand')).to.equal('');
+                controller.send('inputNum', '1');
+                expect(controller.get('operand')).to.equal('1');
+                controller.send('inputNum', '4');
+                expect(controller.get('operand')).to.equal('14');
+            });
+        });
+
+        describe('#inputOperator-Action', function() {
+            it('')
 
         it('should diplay ERROR if there is an error during evaluation', function() {
             var controller = this.subject();

@@ -7,7 +7,9 @@ export default AuthenticatedRoute.extend({
     },
     actions: {
         deleteRegister(register) {
-            register.destroyRecord().then(() => {
+            let deletingRecord = register.destroyRecord();
+            this.controller.set('deletePromise', deletingRecord);
+            deletingRecord.then(() => {
                 this.transitionTo('calculator');
             },(err) => {
                 console.log(err);

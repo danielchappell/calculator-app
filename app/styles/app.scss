@@ -12,7 +12,7 @@ html {
     @extend .blue-grey-text.text-darken-4;
 }
 
-form {
+pform {
     padding-bottom: 30px;
 }
 
@@ -24,6 +24,10 @@ h1 {
     form {
         padding-bottom: 0;
     }
+}
+
+.error-message {
+  @extend .red-text.text-darken-1;
 }
 
 @import 'partials/register-tape';

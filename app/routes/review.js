@@ -17,7 +17,9 @@ export default AuthenticatedRoute.extend({
     actions: {
         saveRegister(model) {
             model.set('date', Date()); //just want string not object
-            model.save().then(() => {
+            let savingPromise = model.save();
+            this.controller.set('savePromise', savingPromise);
+            savingPromise.then(() => {
                 this.transitionTo('calculator');
             });
         },

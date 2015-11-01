@@ -62,7 +62,7 @@ export default Ember.Controller.extend({
             symbol = '!';
             break;
         case 'powerOf':
-            symbol = 'x(y)';
+            symbol = '**';
             break;
         case 'sin':
             symbol = 'sin';

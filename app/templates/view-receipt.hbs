@@ -2,6 +2,7 @@
     <div class="col s12">
         <h1 class="center-align">{{model.label}}</h1>
     </div>
+    {{loading-bar promise=deletePromise message="deleting.."}}
     <div class="col s12 m10 offset-m1">
         {{partial "register"}}
     </div>
